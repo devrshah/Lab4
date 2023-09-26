@@ -63,7 +63,7 @@ public class ArrayDoubleQueue implements IDoubleQueue
 
             if (queue != null) {
                 
-                queue[]
+                queue[i] = null;
             }
        }
     }
@@ -71,7 +71,7 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public int length()
     {
-
+        return queue.size;
     }
 
     public String toString()
