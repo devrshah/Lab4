@@ -31,7 +31,7 @@ public interface IDoubleQueue
     /**lengthContract
      *
      *
-     *@return
+     *@return none //////
      *
      *@pre
      *
