@@ -19,11 +19,11 @@ public interface IDoubleQueue
     /**dequeueContract
      *
      *
-     *@return
+     *@return  The Double value dequeued from the front of the queue.
      *
-     *@pre
+     *@pre The queue is not empty.
      *
-     *@post
+     *@post [ The front element of the queue is removed, and the size of the queue is reduced by 1]
      *
      */
     public Double dequeue();
@@ -31,11 +31,11 @@ public interface IDoubleQueue
     /**lengthContract
      *
      *
-     *@return
+     *@return the number of elemts currently in the queue
      *
-     *@pre
+     *@pre None.
      *
-     *@post
+     *@post [Length of the queue is returned]
      *
      */
     public int length();
@@ -43,12 +43,13 @@ public interface IDoubleQueue
     /**toStringContract
      *
      *
-     *@return
+     *@return A string representation of the elements in the queue.
      *
-     *@pre
+     *@pre None
      *
-     *@post
+     *@post [a string representation of its elements is returned]
      *
      */
     public String toString();
 }
+
