@@ -13,7 +13,7 @@ package com.gradescope.DoubleQueue.code;
  * [queue is not empty AND is size greater than 0.] AND [The queue can store elements of type Double AND The dequeue operation is only allowed when the queue is not empty.]
  *
  */
-public interface IDoubleQueue <T>
+
 {
 
     //This function's contracts are in the individual classes
