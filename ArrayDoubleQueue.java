@@ -1,3 +1,4 @@
+
 package com.gradescope.DoubleQueue.code;
 
 /**
@@ -40,7 +41,8 @@ public class ArrayDoubleQueue implements IDoubleQueue {
      *
      * @pre |self| < queueMaxSize
      *
-     * @post [self = #self with val added to left-most unoccupied index] AND queueMaxSize = #queueMaxSize
+     * @post [self = #self with val added to left-most unoccupied index] AND
+     *       queueMaxSize = #queueMaxSize
      *
      */
     @Override
@@ -74,7 +76,6 @@ public class ArrayDoubleQueue implements IDoubleQueue {
 
             return frontElement;
         }
-                }
 
     }
 
@@ -86,8 +87,9 @@ public class ArrayDoubleQueue implements IDoubleQueue {
     public String toString() {
 
         String ret = "";
-        for (int i = 0; i <= size; i++) {
-            ret += ("[" + queue[i] + "] ");
+        for(Double d : queue)
+        {
+            ret += ("[" + d + "] ");
         }
         return ret;
     }
