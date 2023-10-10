@@ -4,25 +4,19 @@ import java.util.ArrayList;
 
 /**ListDoubleQueueContract
  *
- *
- * @invariant: 0 <= LQueue.size() <= maxListSize
- *
- * @corresponds: This queue corresponds to a list of values with a maximum size of maxListSize.
- *
+ * @invariant: LQueue != null && LQueue.size() <= maxListSize
+ * @corresponds: This class represents a queue, where the maximum size of the queue is determined by maxListSize.
  */
 public class ListDoubleQueue implements IDoubleQueue
 {
     private ArrayList<Double> LQueue;
     private int maxListSize;
 
-    /**ListDoubleQueueConstructorContact
+    /**ListDoubleQueueConstructorContract
      *
-     *
-     * @param maxSize max size of the list
-     *
-     * @pre maxSize > 0
-     *
-     * @post LQueue != null && LQueue.size() == 0 && this.maxListSize == maxSize
+     * @param maxSize
+     * @pre: maxSize > 0
+     * @post: LQueue != null && LQueue.size() == 0 && this.maxListSize == maxSize
      *
      */
     public ListDoubleQueue(int maxSize)
@@ -31,14 +25,12 @@ public class ListDoubleQueue implements IDoubleQueue
         this.maxListSize = maxSize;
     }
 
-    /**enqueueContact
+    /**enqueueContract
      *
-     *
-     * @param val A Double value that represents the number to be added to the queue.
-     *
-     * @pre val != null
-     *
-     * @post 
+     * @param val
+     * @pre: val != null
+     * @post: [LQueue.size() < maxListSize && LQueue.contains(val) && LQueue.size() == old(LQueue.size()) + 1) ||
+     *        (LQueue.size() == maxListSize && LQueue.get(maxListSize-1) == val && LQueue.size() == old(LQueue.size())]
      *
      */
     @Override
@@ -51,20 +43,17 @@ public class ListDoubleQueue implements IDoubleQueue
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
-
     @Override
     public Double dequeue()
     {
         return LQueue.remove(0);
     }
 
-
     @Override
     public int length()
     {
         return LQueue.size();
     }
-
 
     public String toString()
     {
@@ -75,5 +64,5 @@ public class ListDoubleQueue implements IDoubleQueue
         }
         return ret;
     }
-
 }
+
