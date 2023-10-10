@@ -1,9 +1,8 @@
-default:
-	javac -d . com/gradescope/DoubleQueue/code/*.java
-	javac -d . Driver/*.java
+default: cpsc2151/lab5/ArrayDoubleQueue.java cpsc2151/lab5/ListDoubleQueue.java cpsc2151/lab5/IDoubleQueue.java cpsc2151/lab5/DoubleQueueDriver.java
+	javac cpsc2151/lab5/ArrayDoubleQueue.java cpsc2151/lab5/ListDoubleQueue.java cpsc2151/lab5/IDoubleQueue.java cpsc2151/lab5/DoubleQueueDriver.java
 
-run:
-	java Driver.DoubleQueueDriver
+run: cpsc2151/lab5/ArrayDoubleQueue.class cpsc2151/lab5/ListDoubleQueue.class cpsc2151/lab5/IDoubleQueue.class cpsc2151/lab5/DoubleQueueDriver.class
+	java cpsc2151.lab5.ArrayDoubleQueue cpsc2151.lab5.ListDoubleQueue cpsc2151.lab5.IDoubleQueue cpsc2151.lab5.DoubleQueueDriver
 
 clean:
-	find . -name "*.class" -type f -delete
+	rm -f *.class
