@@ -13,7 +13,7 @@ package com.gradescope.DoubleQueue.code;
  * [queue is not empty AND is size greater than 0.] AND [The queue can store elements of type Double AND The dequeue operation is only allowed when the queue is not empty.]
  *
  */
-public interface IDoubleQueue
+public interface IDoubleQueue <T>
 {
 
     //This function's contracts are in the individual classes
@@ -54,4 +54,21 @@ public interface IDoubleQueue
      *
      */
     public String toString();
+
+    /**peekContract
+     *<Description: Returns the element at the front of the queue without removing it.>
+     *
+     *@return Returns the front element of the queue.
+     *
+     *@pre 0 < queue size [The queue is not empty.]
+     *
+     *@post [The queue remains unchanged] AND [The front element of the queue is returned]
+     *
+     */
+    default T peek() {
+        if(length() <= 0) return null;
+        T frontItem = dequeue();
+        enqueue(frontItem);
+        return frontItem;
+    }
 }
