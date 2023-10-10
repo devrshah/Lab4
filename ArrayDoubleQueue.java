@@ -1,6 +1,7 @@
 package com.gradescope.DoubleQueue.code;
 
-/**ArrayDoubleQueueContract
+/**
+ * ArrayDoubleQueueContract
  * Array implementation for the Double queue.
  *
  * @invariant: queueMaxSize > 0
@@ -8,13 +9,13 @@ package com.gradescope.DoubleQueue.code;
  * @corresponds: max_queue_size = queueMaxSize
  *
  */
-public class ArrayDoubleQueue implements IDoubleQueue
-{
+public class ArrayDoubleQueue implements IDoubleQueue {
     private Double[] queue;
     private int queueMaxSize;
-       
+    private int size;
 
-    /**ArrayDoubleQueueConstructorContact
+    /**
+     * ArrayDoubleQueueConstructorContact
      * Constructor for the arrayListDouble queue.
      *
      * @param maxSize max size of the array
@@ -24,14 +25,15 @@ public class ArrayDoubleQueue implements IDoubleQueue
      * @post queueMaxSize = maxSize AND self = new Double[queueMaxSize].
      *
      */
-    public ArrayDoubleQueue(int maxSize)
-    {
-        
+    public ArrayDoubleQueue(int maxSize) {
+
         queueMaxSize = maxSize;
         queue = new Double[queueMaxSize];
+        size = 0;
     }
 
-    /**enqueueContact
+    /**
+     * enqueueContact
      * Enqueue adds an item to the queue.
      *
      * @param val the Double to be added
@@ -42,51 +44,60 @@ public class ArrayDoubleQueue implements IDoubleQueue
      *
      */
     @Override
-    public void enqueue(Double val)
-    {
-        for (int i = 0; i < length(); i++) {
-            if(queue[i] == null){
+    public void enqueue(Double val) {
 
-                queue[i] = val;
-                return;
-            }
+        if (size < queueMaxSize) {
+            queue[size] = val;
+            size++;
+        }else{
 
+            queue[queueMaxSize - 1] = val;
         }
     }
 
-    //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
+    // Note: The below 3 functions intentionally do not have contracts. You do not
+    // need to add them.
 
     @Override
-    public Double dequeue()
-    {
-       for (int i = 0; i < length(); i++) {
+    public Double dequeue() {
+        if (size == 0) {
+            return null;
+        } else {
+            Double frontElement = queue[0];
 
-            if (queue != null) {
-                
-                queue[i] = null;
+            for (int i = 0; i < size - 1; i++) {
+                queue[i] = queue[i + 1];
             }
-       }
+
+            queue[size - 1] = null;
+            size--;
+
+            return frontElement;
+        }
+                }
+
     }
 
     @Override
-    public int length()
-    {
-        return queue.size;
+    public int length() {
+        return size;
     }
 
-    public String toString()
-    {
+    public String toString() {
 
+        String ret = "";
+        for (int i = 0; i <= size; i++) {
+            ret += ("[" + queue[i] + "] ");
+        }
+        return ret;
     }
 
-    //-----------------Ignore the functions below this line-----------------------
-    public int getQueueMaxSize()
-    {
+    // -----------------Ignore the functions below this line-----------------------
+    public int getQueueMaxSize() {
         return this.queueMaxSize;
     }
 
-    public Double[] getQueue()
-    {
+    public Double[] getQueue() {
         return this.queue;
     }
 }
