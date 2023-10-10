@@ -3,15 +3,15 @@ package com.gradescope.DoubleQueue.code;
 
 /**
  * ArrayDoubleQueueContract
- * Array implementation for the Double queue.
+ * Array implementation for the T queue.
  *
  * @invariant: queueMaxSize > 0
  *
  * @corresponds: max_queue_size = queueMaxSize
  *
  */
-public class ArrayDoubleQueue implements IDoubleQueue {
-    private Double[] queue;
+public class ArrayDoubleQueue<T> implements IDoubleQueue<T> {
+    private T[] queue;
     private int queueMaxSize;
     private int size;
 
@@ -23,13 +23,13 @@ public class ArrayDoubleQueue implements IDoubleQueue {
      *
      * @pre maxSize > 0
      *
-     * @post queueMaxSize = maxSize AND self = new Double[queueMaxSize].
+     * @post queueMaxSize = maxSize AND self = new T[queueMaxSize].
      *
      */
     public ArrayDoubleQueue(int maxSize) {
 
         queueMaxSize = maxSize;
-        queue = new Double[queueMaxSize];
+        queue = (T[]) new Object[queueMaxSize];
         size = 0;
     }
 
@@ -37,7 +37,7 @@ public class ArrayDoubleQueue implements IDoubleQueue {
      * enqueueContact
      * Enqueue adds an item to the queue.
      *
-     * @param val the Double to be added
+     * @param val the  to be added
      *
      * @pre |self| < queueMaxSize
      *
@@ -46,7 +46,7 @@ public class ArrayDoubleQueue implements IDoubleQueue {
      *
      */
     @Override
-    public void enqueue(Double val) {
+    public void enqueue(T val) {
 
         if (size < queueMaxSize) {
             queue[size] = val;
@@ -61,11 +61,11 @@ public class ArrayDoubleQueue implements IDoubleQueue {
     // need to add them.
 
     @Override
-    public Double dequeue() {
+    public T dequeue() {
         if (size == 0) {
             return null;
         } else {
-            Double frontElement = queue[0];
+            T frontElement = queue[0];
 
             for (int i = 0; i < size - 1; i++) {
                 queue[i] = queue[i + 1];
@@ -83,11 +83,12 @@ public class ArrayDoubleQueue implements IDoubleQueue {
     public int length() {
         return size;
     }
-
+    
+    @Override
     public String toString() {
 
         String ret = "";
-        for(Double d : queue)
+        for(T d : queue)
         {
             ret += ("[" + d + "] ");
         }
@@ -99,7 +100,7 @@ public class ArrayDoubleQueue implements IDoubleQueue {
         return this.queueMaxSize;
     }
 
-    public Double[] getQueue() {
+    public T[] getQueue() {
         return this.queue;
     }
 }

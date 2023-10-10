@@ -1,4 +1,3 @@
-
 package com.gradescope.DoubleQueue.code;
 
 import java.util.ArrayList;
@@ -8,9 +7,9 @@ import java.util.ArrayList;
  * @invariant: LQueue != null && LQueue.size() <= maxListSize
  * @corresponds: This class represents a queue, where the maximum size of the queue is determined by maxListSize.
  */
-public class ListDoubleQueue implements IDoubleQueue
+public class ListDoubleQueue<T> implements IDoubleQueue<T>
 {
-    private ArrayList<Double> LQueue;
+    private ArrayList<T> LQueue;
     private int maxListSize;
 
     /**ListDoubleQueueConstructorContract
@@ -22,7 +21,7 @@ public class ListDoubleQueue implements IDoubleQueue
      */
     public ListDoubleQueue(int maxSize)
     {
-        this.LQueue = new ArrayList<Double>();
+        this.LQueue = (T[]) new Object[maxListSize];
         this.maxListSize = maxSize;
     }
 
@@ -35,7 +34,7 @@ public class ListDoubleQueue implements IDoubleQueue
      *
      */
     @Override
-    public void enqueue(Double val)
+    public void enqueue(T val)
     {
         if(LQueue.size() == this.maxListSize)
             LQueue.set(this.maxListSize-1, val);
@@ -45,7 +44,7 @@ public class ListDoubleQueue implements IDoubleQueue
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
     @Override
-    public Double dequeue()
+    public T dequeue()
     {
         return LQueue.remove(0);
     }
@@ -59,7 +58,7 @@ public class ListDoubleQueue implements IDoubleQueue
     public String toString()
     {
         String ret = "";
-        for(Double d : LQueue)
+        for(T d : LQueue)
         {
             ret += ("[" + d + "] ");
         }

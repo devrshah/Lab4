@@ -10,26 +10,26 @@ package com.gradescope.DoubleQueue.code;
  *
  *@constraints:  0 <= queue size <= maxListSize 
  * maxListSize > 0
- * [queue is not empty AND is size greater than 0.] AND [The queue can store elements of type Double AND The dequeue operation is only allowed when the queue is not empty.]
+ * [queue is not empty AND is size greater than 0.] AND [The queue can store elements of type T AND The dequeue operation is only allowed when the queue is not empty.]
  *
  */
-public interface IDoubleQueue
+public interface IDoubleQueue<T>
 {
 
     //This function's contracts are in the individual classes
-    public void enqueue(Double val);
+    public void enqueue(T val);
 
     /**dequeueContract
      *<Description: Removes and returns the element from the front end of the queue.>
      *
-     *@return  Returns the Double value dequeued from the front of the queue.
+     *@return  Returns the T value dequeued from the front of the queue.
      *
      *@pre 0 < queue size [The queue is not empty.]
      *
      *@post [ The front element of the queue is removed, and the size of the queue is reduced by 1] AND [The dequeued element is returned]
      *
      */
-    public Double dequeue();
+    public T dequeue();
 
     /**lengthContract
      *<Description: Returns the number of elements currently in the queue.>
