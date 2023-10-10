@@ -1,3 +1,4 @@
+
 package com.gradescope.DoubleQueue.code;
 
 import java.util.ArrayList;
@@ -65,4 +66,3 @@ public class ListDoubleQueue implements IDoubleQueue
         return ret;
     }
 }
-
