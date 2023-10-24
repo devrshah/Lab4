@@ -1,8 +1,9 @@
-default: cpsc2151/lab5/ArrayDoubleQueue.java cpsc2151/lab5/ListDoubleQueue.java cpsc2151/lab5/IDoubleQueue.java cpsc2151/lab5/DoubleQueueDriver.java
-	javac cpsc2151/lab5/ArrayDoubleQueue.java cpsc2151/lab5/ListDoubleQueue.java cpsc2151/lab5/IDoubleQueue.java cpsc2151/lab5/DoubleQueueDriver.java
+default: javac Lab5/src/Driver/DoubleQueueDriver java
+Lab5/src/com/gradescope/DoubleQueue/code/iDoubleQueue.java
+Lab5/src/com/gradescope/DoubleQueue/code/ArrayDoubleQueue.java
+Lab5/src/com/gradescope/DoubleQueue/code/ListDoubleQueue.java
 
-run: cpsc2151/lab5/ArrayDoubleQueue.class cpsc2151/lab5/ListDoubleQueue.class cpsc2151/lab5/IDoubleQueue.class cpsc2151/lab5/DoubleQueueDriver.class
-	java cpsc2151.lab5.ArrayDoubleQueue cpsc2151.lab5.ListDoubleQueue cpsc2151.lab5.IDoubleQueue cpsc2151.lab5.DoubleQueueDriver
+run:Lab5/src/Driver/DoubleQueueDriver.Java
+java Lab5.src.Driver.DoubleQueueDriver Java
 
-clean:
-	rm -f *.class
+clean: rm -f *.class
